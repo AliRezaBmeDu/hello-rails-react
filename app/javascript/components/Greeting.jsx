@@ -13,8 +13,14 @@ const Greeting = () => {
 
   return (
     <div>
-      <h2>Greeting</h2>
-      <p>{greeting}</p>
+      <h1>Random Greeting:</h1>
+      {status === 'loading' ? (
+        <p>Loading...</p>
+      ) : status === 'failed' ? (
+        <p>Error loading greeting</p>
+      ) : (
+        <p>{greeting}</p>
+      )}
     </div>
   );
 };
