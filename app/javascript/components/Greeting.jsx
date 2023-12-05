@@ -17,9 +17,9 @@ const Greeting = () => {
       {status === 'loading' ? (
         <p>Loading...</p>
       ) : status === 'failed' ? (
-        <p>Error loading greeting</p>
+        <p className="error-message">Error loading greeting</p>
       ) : (
-        <p>{greeting}</p>
+        <p className='greeting-message'>{greeting}</p>
       )}
     </div>
   );
