@@ -16,6 +16,13 @@ module HelloWorldOneAppWebpack
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:3000' # Replace with the origin of your React app
+        resource '/api/*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
+
     # config.assets.enabled = true
     # Configuration for the application, engines, and railties goes here.
     #

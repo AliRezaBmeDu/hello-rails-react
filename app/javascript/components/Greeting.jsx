@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchGreetings } from '../store/greetingSlice';
 
 const Greeting = () => {
-  const [greeting, setGreeting] = useState('');
+  const dispatch = useDispatch();
+  const greeting = useSelector((state) => state.greetings.value);
 
   useEffect(() => {
-    // Fetch random greeting from the API
-    axios.get('http://localhost:3000/api/greetings/random')
-      .then(response => setGreeting(response.data.greeting))
-      .catch(error => console.error(error));
-  }, []);
+    dispatch(fetchGreetings());
+  }, [dispatch]);
 
   return (
     <div>
-      <h1>Random Greeting:</h1>
+      <h2>Greeting</h2>
       <p>{greeting}</p>
     </div>
   );
