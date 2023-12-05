@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchGreetings } from '../store/greetingSlice';
+import { createGreetings } from '../store/greetingsSlice';
 
 const Greeting = () => {
   const dispatch = useDispatch();
   const greeting = useSelector((state) => state.greetings.value);
+  const status = useSelector((state) => state.greetings.status);
 
   useEffect(() => {
-    dispatch(fetchGreetings());
+    dispatch(createGreetings());
   }, [dispatch]);
 
   return (
