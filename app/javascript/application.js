@@ -2,15 +2,19 @@ import "@hotwired/turbo-rails";
 import "./controllers";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'; // Import Provider
+import {BrowserRouter} from "react-router-dom";
+import { Provider } from 'react-redux';
 import store from './store/store';
 import App from './components/App.jsx';
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+  <React.StrictMode>
     <Provider store={store}>
-      <App />
-    </Provider>,
-    document.getElementById('root')
-  );
-});
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>,
+);
