@@ -92,6 +92,7 @@ https://github.com/AliRezaBmeDu/hello-rails-react.git
 To run the project, execute the following steps:
 
 ```sh
+    rails db:create db:migrate db:seed
     rails assets:precompile
     rails server
 ```
@@ -99,7 +100,7 @@ Then navigate to 'https://localhost:3000' to get started
 
 ### Test
 
-To test the api, run the following command in the terminal:
+To test the api, go to the following address:
 
 ```sh
   https://localhost:3000/api/greetings/random
